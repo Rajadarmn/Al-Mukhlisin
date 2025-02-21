@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <title>Document</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- navbar start -->
+    <nav x-data="{ isOpen: false }" class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-amber-800 backdrop-blur-md"></div>
+        <!-- Main Navbar Content -->
+        <div class="relative px-4 sm:px-8 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3 group">
+                    <!-- <div class="relative">
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-lg blur group-hover:blur-md transition-all duration-300"></div>
+                        <svg class="relative w-8 sm:w-10 h-8 sm:h-10 text-white transform group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M21.721 12.752a9.711 9.711 0 00-.945-5.003 12.754 12.754 0 01-4.339 2.708 18.991 18.991 0 01-.214 4.772 17.165 17.165 0 005.498-2.477zM14.634 15.55a17.324 17.324 0 00.332-4.647c-.952.227-1.945.347-2.966.347-1.021 0-2.014-.12-2.966-.347a17.515 17.515 0 00.332 4.647 17.385 17.385 0 005.268 0zM9.772 17.119a18.963 18.963 0 004.456 0A17.182 17.182 0 0112 21.724a17.18 17.18 0 01-2.228-4.605zM7.777 15.23a18.87 18.87 0 01-.214-4.774 12.753 12.753 0 01-4.34-2.708 9.711 9.711 0 00-.944 5.004 17.165 17.165 0 005.498 2.477zM21.356 14.752a9.765 9.765 0 01-7.478 6.817 18.64 18.64 0 001.988-4.718 18.627 18.627 0 005.49-2.098zM2.644 14.752c1.682.971 3.53 1.688 5.49 2.099a18.64 18.64 0 001.988 4.718 9.765 9.765 0 01-7.478-6.816zM13.878 2.43a9.755 9.755 0 016.116 3.986 11.267 11.267 0 01-3.746 2.504 18.63 18.63 0 00-2.37-6.49zM12 2.276a17.152 17.152 0 012.805 7.121c-.897.23-1.837.353-2.805.353-.968 0-1.908-.122-2.805-.353A17.151 17.151 0 0112 2.276zM10.122 2.43a18.629 18.629 0 00-2.37 6.49 11.266 11.266 0 01-3.746-2.504 9.755 9.755 0 016.116-3.985z"/>
+                        </svg>
+                    </div> -->
+                    <span class="text-xl sm:text-2xl font-bold text-amber-500">Masjid UI</span>
+                </div>
+  
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-10">
+                    <a href="#hero" class="relative group">
+                        <span class="text-amber-400 group-hover:text-amber-00 transition-colors duration-300">Home</span>
+                        <div class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-amber-400 group-hover:w-full transition-all duration-300"></div>
+                        <div class="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber/20 group-hover:w-full transition-all duration-500 delay-100"></div>
+                    </a>
+                    <a href="#about" class="relative group">
+                        <span class="text-amber-400 group-hover:text-amber-00 transition-colors duration-300">About</span>
+                        <div class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-amber-400 group-hover:w-full transition-all duration-300"></div>
+                        <div class="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber/20 group-hover:w-full transition-all duration-500 delay-100"></div>
+                    </a>
+                    <a href="#contact" class="relative group">
+                        <span class="text-amber-400 group-hover:text-amber-00 transition-colors duration-300">Contact</span>
+                        <div class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-amber-400 group-hover:w-full transition-all duration-300"></div>
+                        <div class="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber/20 group-hover:w-full transition-all duration-500 delay-100"></div>
+                    </a>
+                </div>
+  
+                <!-- Right Side Buttons -->
+                <div class="flex items-center space-x-4">
+                    <!-- CTA Button (Hidden on smallest screens) -->
+                    <button class="hidden sm:flex relative group">
+                        <div class="absolute -inset-0.5 bg-gradient-to-r from-amber-500 to-amber-700 rounded-lg blur opacity-60 group-hover:opacity-100 transition duration-200"></div>
+                        <div class="relative px-5 sm:px-7 py-2 sm:py-3 bg-amber-500 rounded-lg leading-none flex items-center">
+                            <div class="flex items-center space-x-2">
+                                <a href="" class="text-gray-200 group-hover:text-white transition duration-200">Contact me</a>
+                            </div>
+                        </div>
+                    </button>
+  
+                    <!-- Mobile Menu Button -->
+                    <button @click="isOpen = !isOpen" class="md:hidden relative group" aria-label="Toggle mobile menu">
+                        <div class="absolute -inset-0.5 bg-gradient-to-r from-gray-500 to-gray-700 rounded blur opacity-60 group-hover:opacity-100 transition duration-200"></div>
+                        <div class="relative p-2 bg-gray-500 rounded leading-none">
+                            <svg x-show="!isOpen" class="w-6 h-6 text-gray-200 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                            </svg>
+                            <svg x-show="isOpen" class="w-6 h-6 text-gray-200 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                        </div>
+                    </button>
+                </div>
+            </div>
+  
+            <!-- Mobile Menu Dropdown -->
+            <div x-show="isOpen" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-2" class="relative mt-4 md:hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1 bg-amber-900/50 backdrop-blur-sm rounded-lg border border-amber-500/10">
+                    <a href="#hero" class="block px-3 py-2 rounded-md text-base font-medium text-amber-100 hover:text-white hover:bg-amber-800/50 transition-all duration-200">Home</a>
+                    <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-amber-100 hover:text-white hover:bg-amber-800/50 transition-all duration-200">About</a>
+                    <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-amber-100 hover:text-white hover:bg-amber-800/50 transition-all duration-200">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <!-- navbar end -->
+
+    <!-- Hero Start -->
+    <!-- forked from: https://codepen.io/cuonoj/pen/JjPmMaB -->
+
+    <section id="hero" class="relative h-screen flex flex-col items-center justify-center text-center text-white ">
+        <div class="image-docker absolute top-0 left-0 w-full h-full overflow-hidden">
+            <img src="img/hero.jpeg" alt="Masjid" class="w-full h-full object-cover">
+        </div>
+        <div class="image-content space-y-2 z-10">
+            <h1 class="font-light text-6xl">Welcome to our Mosque</h1>
+            <h3 class="font-light text-3xl">IDN BOARDING SCHOOL</h3>
+        </div>
+    </section>
+    <!-- Hero End -->
+
+    <!--About start-->
+<section id="about" class="bg-gray-100 py-12">
+    <div class="container mx-auto px-6 md:px-12 lg:px-24 flex flex-col md:flex-row items-center relative">
+        <div class="md:w-1/2 mb-8 md:mb-0">
+            <h2 class="text-3xl font-bold text-amber-600 mb-4">About Us</h2>
+            <p class="text-zinc-600 mb-4">Masjid ini adalah tempat ibadah yang nyaman dengan fasilitas lengkap, termasuk
+                ruang salat luas, area wudu bersih, serta
+                kajian dan kegiatan rutin. Kami mengundang semua jamaah untuk beribadah dan bersilaturahmi di sini. <br>
+
+                📍 Lokasi: IDN Boarding School Pamijahan Bogor <br>
+                📅 Jadwal: Full Day </p> <br>
+            <a href="#contact"
+                class="bg-amber-800 text-white px-6 py-2 rounded-lg shadow-md hover:bg-amber-600 transition">Contact
+                Us</a>
+        </div>
+        <div class="md:w-1/2 relative">
+            <div class="absolute top-26 right-6 w-2/3 h-4/5 border-4 border-amber-500 rounded-lg"></div>
+            <img src="img/HD-wallpaper-mosque-monument.jpg" alt="About Us"
+                class="w-3/4 mx-auto rounded-lg shadow-lg relative">
+        </div>
+    </div>
+    <div class="container-pilar">
+        <div class="subtitle">Masjid Al Mukhlisin</div>
+        <div class="title">The pillar Of Islam</div>
+        <div class="circle-container-pilar">
+            <div class="circle">Shahada</div>
+            <div class="circle">Salah</div>
+            <div class="circle">Zakat</div>
+            <div class="circle">Sawm</div>
+            <div class="circle">Hajj</div>
+        </div>
+    </div>
+</section>
+    <!--About end-->
+
+
+    <!--five pilars-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    <!-- contact  -->
+
+    <div id="contact" class="min-h-screen bg-blue-50 flex items-center justify-center p-4">
+        <div class="max-w-4xl w-full bg-white p-8 rounded-lg shadow-md grid gap-6 md:grid-cols-2">
+            <div>
+                <h1 class="text-3xl font-bold font-[Gabarito] text-gray-900">Contact Us</h1>
+                <p class="mt-4 text-gray-600 font-[Gabarito]"> Reach Via Email </p>
+                <p class="mt-2 text-gray-700 font-semibold font-[Gabarito]"> fadilathazharif@gmail.com </p>
+                <p class="text-gray-700 font-[Gabarito]">081514567956</p>
+                      </div>
+            <div class="bg-white p-6 rounded-3xl shadow">
+                <h2 class="text-xl font-semibold text-gray-900 font-[Gabarito]">Get in Touch</h2>
+                <form class="mt-4 space-y-3">
+                    <input type="text" placeholder="Your Name" class="w-full p-3 border rounded-md" />
+                    <input type="email" placeholder="Your Email" class="w-full p-3 border rounded-md" />
+                    <textarea placeholder="Your Message" class="w-full p-3 border rounded-md h-24"></textarea>
+                    <button class="w-full bg-amber-600 text-white p-3 rounded-md font-semibold font-[Gabarito]">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
